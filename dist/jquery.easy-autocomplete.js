@@ -1446,10 +1446,10 @@ var EasyAutocomplete = (function(scope) {
 	        		    }
 		        	})
 					.keydown(function(event) {
+						var selectedOrZero = selectedElement === -1 ? 0 : selectedElement; 
+						if (event.keyCode === 13) {
 
-						if (event.keyCode === 13 && selectedElement > -1) {
-
-							$field.val(config.get("getValue")(elementsList[selectedElement]));
+							$field.val(config.get("getValue")(elementsList[selectedOrZero]));
 
 							config.get("list").onKeyEnterEvent();
 							config.get("list").onChooseEvent();
