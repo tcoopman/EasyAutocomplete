@@ -621,11 +621,11 @@ var EasyAutocomplete = (function(scope) {
 	        		    }
 		        	})
 					.keydown(function(event) {
-						if (selectedElement === -1) selectedElement = 0
-						if (event.keyCode === 13 && selectedElement > -1) {
+						var selectedOrZero = selectedElement === -1 ? 0 : selectedElement; 
+						if (event.keyCode === 13) {
 							//enter
 
-							$field.val(config.get("getValue")(elementsList[selectedElement]));
+							$field.val(config.get("getValue")(elementsList[selectedOrZero]));
 
 							config.get("list").onKeyEnterEvent();
 							config.get("list").onChooseEvent();
