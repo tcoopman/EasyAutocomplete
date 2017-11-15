@@ -621,9 +621,8 @@ var EasyAutocomplete = (function(scope) {
 	        		    }
 		        	})
 					.keydown(function(event) {
-
+						if (selectedElement === -1) selectedElement = 0
 						if (event.keyCode === 13 && selectedElement > -1) {
-
 							//enter
 
 							$field.val(config.get("getValue")(elementsList[selectedElement]));
